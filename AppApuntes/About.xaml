@@ -8,7 +8,7 @@
         <VerticalStackLayout Spacing="20" Padding="20">
 
             <HorizontalStackLayout Spacing="15">
-                <Image Source="imagen.jpg"
+                <Image Source="image.png"
                        HeightRequest="64"
                        SemanticProperties.Description="Logo o avatar del desarrollador" />
                 <VerticalStackLayout>
@@ -17,7 +17,7 @@
                 </VerticalStackLayout>
             </HorizontalStackLayout>
 
-            <Label Text="Esta aplicación fue desarrollada como parte de una asignación para crear una agenda de notas utilizando .NET MAUI." 
+            <Label Text="Aplicacion Agenda" 
                    FontSize="16"
                    LineBreakMode="WordWrap" />
 

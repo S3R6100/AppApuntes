@@ -4,21 +4,38 @@ namespace AppApuntes;
 
 public partial class MainPage : ContentPage
 {
-    ObservableCollection<string> notas = new ObservableCollection<string>();
+    public ObservableCollection<Nota> listaNotas { get; set; }
 
     public MainPage()
     {
         InitializeComponent();
-        ListaNotas.ItemsSource = notas;
+
+        listaNotas = new ObservableCollection<Nota>();
+        BindingContext = this;
     }
 
-    private void AgregarNota_Clicked(object sender, EventArgs e)
+    public class Nota
     {
-        
+        public string Texto { get; set; }
+        public string Fecha { get; set; }
     }
 
-    private void EliminarNota_Clicked(object sender, EventArgs e)
+    private async void Agregar_Clicked(object sender, EventArgs e)
     {
-        
+        await Navigation.PushAsync(new NotaPage(listaNotas));
+    }
+
+    private async void About_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new About());
+    }
+
+    private async void NotasCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is Nota notaSeleccionada)
+        {
+            NotasCollectionView.SelectedItem = null;
+            await Navigation.PushAsync(new NotaPage(listaNotas, notaSeleccionada));
+        }
     }
 }

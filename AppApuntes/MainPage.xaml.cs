@@ -1,24 +1,24 @@
-﻿namespace AppApuntes
+﻿using System.Collections.ObjectModel;
+
+namespace AppApuntes;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    ObservableCollection<string> notas = new ObservableCollection<string>();
+
+    public MainPage()
     {
-        int count = 0;
+        InitializeComponent();
+        ListaNotas.ItemsSource = notas;
+    }
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+    private void AgregarNota_Clicked(object sender, EventArgs e)
+    {
+        
+    }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+    private void EliminarNota_Clicked(object sender, EventArgs e)
+    {
+        
     }
 }
